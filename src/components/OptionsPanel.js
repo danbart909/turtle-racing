@@ -79,8 +79,8 @@ export default class OptionsPanel extends Component {
           </div>
           <div className='panel' id='button'>
             {buttons}
-            <button onClick={() => {(console.log(this.state))}}>this.state</button>
-            <button onClick={() => {(console.log(this.props))}}>this.props</button>
+            {/* <button onClick={() => {(console.log(this.state))}}>this.state</button> */}
+            {/* <button onClick={() => {(console.log(this.props))}}>this.props</button> */}
           </div>
           <div className='panel' id='results'>
             <div id='results-header'>
