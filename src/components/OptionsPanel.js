@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import $ from 'jquery'
 
 export default class OptionsPanel extends Component {
 
@@ -24,18 +25,29 @@ export default class OptionsPanel extends Component {
 
     const state = this.props.uberstate
     const raceResults = state.raceResults
-    let resultsHTML = raceResults.map(x => (
+
+    let resultsHTML = ''
+
+    if (this.props.uberstate.showResults) {
+      resultsHTML = raceResults.map(x => (
         <div className='turtle-result'>{x.name}</div>
       ))
+    } else {
+      resultsHTML = ''
+    }
 
     let winOrLose = ''
-    if (this.props.uberstate.winner == false) {
-      winOrLose = 'You Lose'
-    } else if (this.props.uberstate.winner == true) {
+
+    if (!this.props.uberstate.chosenTurtle) {
+      winOrLose = `No Turtle Selected`
+    } else if (this.props.uberstate.showResults && this.props.uberstate.winner) {
       winOrLose = `You Win`
+    } else if (this.props.uberstate.showResults && !this.props.uberstate.winner) {
+      winOrLose = 'You Lose'
     }
 
     let buttons = ''
+
     if (this.props.uberstate.raceStarted == false) {
       buttons = <button onClick={() => {this.props.startRace()}}>start</button>
     } else {
@@ -66,17 +78,17 @@ export default class OptionsPanel extends Component {
             </form>
           </div>
           <div className='panel' id='button'>
-            {/* <button onClick={() => {this.props.startRace()}}>button</button> */}
             {buttons}
             <button onClick={() => {(console.log(this.state))}}>this.state</button>
             <button onClick={() => {(console.log(this.props))}}>this.props</button>
           </div>
           <div className='panel' id='results'>
-            <span>results</span>
-            {/* <button onClick={() => {this.results()}}>console</button> */}
-            <span>{winOrLose}</span>
+            <div id='results-header'>
+              <span>results</span>
+            </div>
             <div id='race-results'>
-              {resultsHTML}
+              <span>{winOrLose}</span>
+              <span>{resultsHTML}</span>
             </div>
           </div>
         </div>

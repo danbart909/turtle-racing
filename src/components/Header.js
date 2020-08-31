@@ -17,8 +17,8 @@ export default class Header extends Component {
     return (
       <>
         <div id='header'>
-          <button onClick={() => {this.headerState()}}>header state</button>
-          <span>{this.props.uberstate.chosenTurtle}</span>
+          {/* <button onClick={() => {this.headerState()}}>header state</button> */}
+          <span>Your Turtle is: {this.props.uberstate.chosenTurtle}</span>
         </div>
       </>
     )

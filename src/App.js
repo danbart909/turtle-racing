@@ -9,7 +9,9 @@ export default class App extends Component {
     super(props)
     this.state = {
       raceStarted: false,
+      showResults: false,
       chosenTurtle: '',
+      checkChosenTurtle: '',
       nameOrder: [
         {
           name: '',
@@ -160,6 +162,12 @@ export default class App extends Component {
       this.setState({ winner: false })
     }
 
+    if (!this.state.chosenTurtle && this.state.raceStarted) {
+      this.setState({ checkChosenTurtle: false })
+    } else if (this.state.chosenTurtle) {
+      this.setState({ checkChosenTurtle: true })
+    }
+
     this.setState({
       raceStarted: true,
         timeValues: [
@@ -172,12 +180,23 @@ export default class App extends Component {
 
     console.log(this.state)
 
+    setTimeout(
+      function() {
+        this.setState({
+          showResults: true
+        })
+      }
+      .bind(this),
+      3000
+    )
+
   }
 
   restartRace = () => {
 
     this.setState ({
-      raceStarted: false
+      raceStarted: false,
+      showResults: false
     })
 
   }
