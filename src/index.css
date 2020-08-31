@@ -1,0 +1,237 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+#root {
+  background-color: black;
+  color: whitesmoke;
+}
+
+@keyframes goUp {
+  100% {
+    transform: translateY(-72.7vh);
+  }
+}
+
+@keyframes backDown {
+  100% {
+    transform: translateY(72.7vh)
+  }
+}
+
+#overlord {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: calc(13px + 8 * ((100vw - 400px) / 1200));
+  min-height: 98vh;
+  font-family: 'Varta', sans-serif;
+  overflow: hidden;
+}
+
+#main {
+  display: flex;
+  height: 95vh;
+  width: 97.5vw;
+  border: 1px solid whitesmoke;
+}
+
+#right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  border-right: 1px solid whitesmoke;
+}
+
+#top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
+  width: 100%;
+  border-bottom: 1px solid whitesmoke;
+}
+
+#bot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  width: 100%;
+}
+
+#left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------   Header */
+
+#header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  outline: 1px solid lightblue;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------   Main Panel */
+
+#main-panel {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.slots {
+  outline: 1px solid gold;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 25%;
+  text-align: center;
+}
+
+.turtles {
+  outline: 2px solid red;
+  width: 20%;
+  height: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------   Options Panel */
+
+#options-panel {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.panel {
+  outline: 1px solid green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#turtle-radio-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 75%;
+}
+
+#options {
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#button {
+  height: 30%;
+}
+
+#results {
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+}
