@@ -6,53 +6,158 @@ export default class OptionsPanel extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      state: this.props.uberstate
+      ...this.props.uberstate,
+      timerDone: false,
+      showResults: false,
+      showResult1: false,
+      showResult2: false,
+      showResult3: false,
+      showResult4: false
     }
-  }
-
-  results = () => {
-    const state = this.props.uberstate
-    let raceResults = state.raceResults
-    let results = raceResults.map(x => (
-      <div className='turtle-results'>${x.name}</div>
-    ))
-    console.log(results)
-
-    return results;
   }
 
   render() {
 
     const state = this.props.uberstate
     const raceResults = state.raceResults
-
-    let resultsHTML = ''
-
-    if (this.props.uberstate.showResults) {
-      resultsHTML = raceResults.map(x => (
-        <div className='turtle-result'>{x.name}</div>
-      ))
-    } else {
-      resultsHTML = ''
-    }
-
+    
     let winOrLose = ''
-
     if (!this.props.uberstate.chosenTurtle) {
-      winOrLose = `No Turtle Selected`
+      winOrLose = <div className='WoL' id='WoL-none'>No Turtle Selected</div>
     } else if (this.props.uberstate.showResults && this.props.uberstate.winner) {
-      winOrLose = `You Win`
+      winOrLose = <div className='WoL' id='WoL-win'>You Win</div>
     } else if (this.props.uberstate.showResults && !this.props.uberstate.winner) {
-      winOrLose = 'You Lose'
+      winOrLose = <div className='WoL' id='WoL-lose'>You Lose</div>
     }
-
-    let buttons = ''
-
-    if (this.props.uberstate.raceStarted == false) {
-      buttons = <button onClick={() => {this.props.startRace()}}>start</button>
+    
+    let result1HTML = ''
+    if (this.props.uberstate.showResults) {
+      result1HTML =
+        <div className='turtle-results' id='turtle-result1'>
+          <div className='turtle-results-place' id='turtle-result1-place'>
+            <span>First:</span>
+          </div>
+          <div className='turtle-results-name' id='turtle-result1-name'>
+            <span>{this.props.uberstate.raceResults[0].name}</span>
+          </div>
+        </div>
     } else {
-      buttons = <button onClick={() => {this.props.restartRace()}}>restart</button>
+      result1HTML = ''
     }
+
+    let result2HTML = ''
+    if (this.props.uberstate.showResults) {
+      result2HTML =
+        <div className='turtle-results' id='turtle-result2'>
+          <div className='turtle-results-place' id='turtle-result2-place'>
+            <span>Second:</span>
+          </div>
+          <div className='turtle-results-name' id='turtle-result2-name'>
+            <span>{this.props.uberstate.raceResults[1].name}</span>
+          </div>
+        </div>
+    } else {
+      result2HTML = ''
+    }
+
+    let result3HTML = ''
+    if (this.props.uberstate.showResults) {
+      result3HTML =
+        <div className='turtle-results' id='turtle-result3'>
+          <div className='turtle-results-place' id='turtle-result3-place'>
+            <span>Third:</span>
+          </div>
+          <div className='turtle-results-name' id='turtle-result3-name'>
+            <span>{this.props.uberstate.raceResults[2].name}</span>
+          </div>
+        </div>
+    } else {
+      result3HTML = ''
+    }
+
+    let result4HTML = ''
+    if (this.props.uberstate.showResults) {
+      result4HTML =
+        <div className='turtle-results' id='turtle-result4'>
+          <div className='turtle-results-place' id='turtle-result4-place'>
+            <span>Fourth:</span>
+          </div>
+          <div className='turtle-results-name' id='turtle-result4-name'>
+            <span>{this.props.uberstate.raceResults[3].name}</span>
+          </div>
+        </div>
+    } else {
+      result4HTML = ''
+    }
+
+    let startStopButton = ''
+    if (this.props.uberstate.raceStarted == false) {
+      startStopButton = <button onClick={() => {this.props.startRace()}}>start</button>
+    } else {
+      startStopButton = <button disabled={!this.props.uberstate.showResults} onClick={() => {this.props.restartRace()}}>restart</button>
+    }
+
+    let time1 = (this.props.uberstate.raceResults[0].finalScore / 2)
+    let time2 = (this.props.uberstate.raceResults[1].finalScore / 2)
+    let time3 = (this.props.uberstate.raceResults[2].finalScore / 2)
+    let time4 = (this.props.uberstate.raceResults[3].finalScore / 2)
+
+    setTimeout(() => {
+      this.setState({
+        showResults: true,
+        timerDone: true
+      })
+    }, 3000)
+
+    if (this.props.uberstate.raceResults[0].name == this.props.uberstate.chosenTurtle) {
+      $('#turtle-result1').css({ 'border': '1px solid white'})
+    } else if (this.props.uberstate.raceResults[1].name == this.props.uberstate.chosenTurtle) {
+      $('#turtle-result2').css({ 'border': '1px solid white'})
+    } else if (this.props.uberstate.raceResults[2].name == this.props.uberstate.chosenTurtle) {
+      $('#turtle-result3').css({ 'border': '1px solid white'})
+    } else if (this.props.uberstate.raceResults[3].name == this.props.uberstate.chosenTurtle) {
+      $('#turtle-result4').css({ 'border': '1px solid white'})
+    }
+
+    // let timeout1 = setTimeout(
+    //   function() {
+    //     this.setState({
+    //       showResult1: true
+    //     })
+    //   }
+    //   .bind(this),
+    //   {time1}
+    // )
+
+    // setTimeout(
+    //   function() {
+    //     this.setState({
+    //       showResult2: true
+    //     })
+    //   }
+    //   .bind(this),
+    //   {time2}
+    // )
+
+    // setTimeout(
+    //   function() {
+    //     this.setState({
+    //       showResult3: true
+    //     })
+    //   }
+    //   .bind(this),
+    //   {time3}
+    // )
+
+    // setTimeout(
+    //   function() {
+    //     this.setState({
+    //       showResult4: true
+    //     })
+    //   }
+    //   .bind(this),
+    //   {time4}
+    // )
     
 
     return (
@@ -78,17 +183,20 @@ export default class OptionsPanel extends Component {
             </form>
           </div>
           <div className='panel' id='button'>
-            {buttons}
-            {/* <button onClick={() => {(console.log(this.state))}}>this.state</button> */}
-            {/* <button onClick={() => {(console.log(this.props))}}>this.props</button> */}
+            {startStopButton}
+            <button onClick={() => {(console.log(this.state))}}>this.state</button>
+            <button onClick={() => {(console.log(this.props))}}>this.props</button>
           </div>
           <div className='panel' id='results'>
             <div id='results-header'>
               <span>results</span>
             </div>
             <div id='race-results'>
-              <span>{winOrLose}</span>
-              <span>{resultsHTML}</span>
+              {winOrLose}
+              {result1HTML}
+              {result2HTML}
+              {result3HTML}
+              {result4HTML}
             </div>
           </div>
         </div>

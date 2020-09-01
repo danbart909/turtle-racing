@@ -168,7 +168,18 @@ html {
   align-items: center;
 }
 
+.turtle-results {
+  display: flex;
+  /* outline: 1px solid teal; */
+}
 
+.turtle-results-place {
+  /* outline: 1px solid purple; */
+}
+
+.turtle-results-name {
+  /* outline: 1px solid blue; */
+}
 
 
 
