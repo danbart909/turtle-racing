@@ -8,11 +8,7 @@ export default class OptionsPanel extends Component {
     this.state = {
       ...this.props.uberstate,
       timerDone: false,
-      showResults: false,
-      showResult1: false,
-      showResult2: false,
-      showResult3: false,
-      showResult4: false
+      showResults: false
     }
   }
 
@@ -97,11 +93,6 @@ export default class OptionsPanel extends Component {
       startStopButton = <button disabled={!this.props.uberstate.showResults} onClick={() => {this.props.restartRace()}}>restart</button>
     }
 
-    let time1 = (this.props.uberstate.raceResults[0].finalScore / 2)
-    let time2 = (this.props.uberstate.raceResults[1].finalScore / 2)
-    let time3 = (this.props.uberstate.raceResults[2].finalScore / 2)
-    let time4 = (this.props.uberstate.raceResults[3].finalScore / 2)
-
     setTimeout(() => {
       this.setState({
         showResults: true,
@@ -119,45 +110,11 @@ export default class OptionsPanel extends Component {
       $('#turtle-result4').css({ 'border': '1px solid white'})
     }
 
-    // let timeout1 = setTimeout(
-    //   function() {
-    //     this.setState({
-    //       showResult1: true
-    //     })
+    // disab = () => {
+    //   if (!this.props.uberstate.raceStarted) {
+    //     return 
     //   }
-    //   .bind(this),
-    //   {time1}
-    // )
-
-    // setTimeout(
-    //   function() {
-    //     this.setState({
-    //       showResult2: true
-    //     })
-    //   }
-    //   .bind(this),
-    //   {time2}
-    // )
-
-    // setTimeout(
-    //   function() {
-    //     this.setState({
-    //       showResult3: true
-    //     })
-    //   }
-    //   .bind(this),
-    //   {time3}
-    // )
-
-    // setTimeout(
-    //   function() {
-    //     this.setState({
-    //       showResult4: true
-    //     })
-    //   }
-    //   .bind(this),
-    //   {time4}
-    // )
+    // }
     
 
     return (
@@ -169,16 +126,16 @@ export default class OptionsPanel extends Component {
               onChange={(e) => {this.props.updateChosenTurtle(e)}}
             >
               <div id='div-turtle1' className='div-turtle'>
-                <input type='radio' name='radio-turtle' id='radio-turtle1' value='Inky' role='radio'/><label id='radio-label-turtle1' className='radio-label-turtle' htmlFor='radio-turtle1'>Inky</label>
+                <input type='radio' name='radio-turtle' id='radio-turtle1' value='Inky' role='radio' disabled={this.props.uberstate.raceStarted} /><label id='radio-label-turtle1' className='radio-label-turtle' htmlFor='radio-turtle1'>Inky</label>
               </div>
               <div id='div-turtle2' className='div-turtle'>
-                <input type='radio' name='radio-turtle' id='radio-turtle2' value='Blinky' role='radio'/><label id='radio-label-turtle2' className='radio-label-turtle' htmlFor='radio-turtle2'>Blinky</label>
+                <input type='radio' name='radio-turtle' id='radio-turtle2' value='Blinky' role='radio' disabled={this.props.uberstate.raceStarted} /><label id='radio-label-turtle2' className='radio-label-turtle' htmlFor='radio-turtle2'>Blinky</label>
               </div>
               <div id='div-turtle3' className='div-turtle'>
-                <input type='radio' name='radio-turtle' id='radio-turtle3' value='Pinky' role='radio'/><label id='radio-label-turtle3' className='radio-label-turtle' htmlFor='radio-turtle3'>Pinky</label>
+                <input type='radio' name='radio-turtle' id='radio-turtle3' value='Pinky' role='radio'  disabled={this.props.uberstate.raceStarted} /><label id='radio-label-turtle3' className='radio-label-turtle' htmlFor='radio-turtle3'>Pinky</label>
               </div>
               <div id='div-turtle4' className='div-turtle'>
-                <input type='radio' name='radio-turtle' id='radio-turtle4' value='Clyde' role='radio'/><label id='radio-label-turtle4' className='radio-label-turtle' htmlFor='radio-turtle4'>Clyde</label>
+                <input type='radio' name='radio-turtle' id='radio-turtle4' value='Clyde' role='radio'  disabled={this.props.uberstate.raceStarted} /><label id='radio-label-turtle4' className='radio-label-turtle' htmlFor='radio-turtle4'>Clyde</label>
               </div>
             </form>
           </div>

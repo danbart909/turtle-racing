@@ -145,11 +145,11 @@ export default class App extends Component {
   
 
   updateChosenTurtle = (e) => {
-    if (!this.state.raceStarted) {
+    // if (!this.state.raceStarted) {
       this.setState({
         chosenTurtle: e.target.value
       })
-    }
+    // }
   }
 
   startRace = () => {

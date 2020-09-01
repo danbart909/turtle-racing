@@ -13,12 +13,21 @@ export default class Header extends Component {
     console.log(this.props)
   }
 
+  header = () => {
+    if (!this.props.uberstate.chosenTurtle) {
+      return ''
+    } else {
+      return <span id='header-chosen'>Your Turtle is: {this.props.uberstate.chosenTurtle}</span>
+    }
+  }
+
   render() {
     return (
       <>
         <div id='header'>
+          <span id='turtle-racing'>Turtle Racing!</span>
           {/* <button onClick={() => {this.headerState()}}>header state</button> */}
-          <span>Your Turtle is: {this.props.uberstate.chosenTurtle}</span>
+          {this.header()}
         </div>
       </>
     )
