@@ -36,6 +36,9 @@ export default class OptionsPanel extends Component {
           <div className='turtle-results-name' id='turtle-result1-name'>
             <span>{this.props.uberstate.raceResults[0].name}</span>
           </div>
+          {/* <div className='turtle-results-time' id='turtle-result1-time'>
+            <span>{this.props.uberstate.raceResults[0].finalScore}</span>
+          </div> */}
         </div>
     } else {
       result1HTML = ''
