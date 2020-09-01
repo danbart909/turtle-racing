@@ -363,7 +363,7 @@ input[type="radio"]:checked + label {
 #WoL-win {
   background-color: blue;
   height: 100%;
-  width: 100%;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -374,7 +374,7 @@ input[type="radio"]:checked + label {
   background-color: red;
   color: black;
   height: 100%;
-  width: 100%;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
