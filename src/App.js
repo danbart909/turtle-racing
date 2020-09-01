@@ -58,22 +58,29 @@ export default class App extends Component {
   }
 
   getNum = (min, max) => {
+    
     return Math.floor(Math.random() * (max - min + 1) ) + min;
+
   }
   
   getLuckNum = () => {
+
     const min = .8
     const max = 1.2
     return (Math.random() * (max - min)) + min;
+
   }
   
   getManeuvering = () => {
+
     const min = 0.1
     const max = 1
     return (Math.random() * (max - min)) + min;
+
   }
 
   race() {
+
     const track = {
       length1: 90,
       length2: 100,
@@ -138,6 +145,7 @@ export default class App extends Component {
       raceResults: finishOrder, nameOrder
     })
     return finishOrder;
+
 }
 
 
@@ -145,11 +153,11 @@ export default class App extends Component {
   
 
   updateChosenTurtle = (e) => {
-    // if (!this.state.raceStarted) {
-      this.setState({
-        chosenTurtle: e.target.value
-      })
-    // }
+
+    this.setState({
+      chosenTurtle: e.target.value
+    })
+
   }
 
   startRace = () => {

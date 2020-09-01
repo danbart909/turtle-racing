@@ -37,7 +37,7 @@ html {
   display: flex;
   height: 95vh;
   width: 97.5vw;
-  border: 1px solid whitesmoke;
+  /* border: 1px solid whitesmoke; */
 }
 
 #right {
@@ -46,7 +46,7 @@ html {
   justify-content: center;
   align-items: center;
   width: 60%;
-  border-right: 1px solid whitesmoke;
+  /* border-right: 1px solid whitesmoke; */
 }
 
 #top {
@@ -55,7 +55,7 @@ html {
   align-items: center;
   height: 20%;
   width: 100%;
-  border-bottom: 1px solid whitesmoke;
+  /* border-bottom: 1px solid whitesmoke; */
 }
 
 #bot {
@@ -104,15 +104,31 @@ html {
 #header {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
+  border-top: 1px solid gold;
 }
 
+#header-turtle-racing {
+  /* outline: 1px solid teal; */
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
-
-
-
-
+#header-chosen-turtle {
+  /* outline: 1px solid teal; */
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
 
 
@@ -148,15 +164,34 @@ html {
   display: flex;
   height: 100%;
   width: 100%;
+  border-top: 1px solid gold;
+  border-bottom: 1px solid gold;
 }
 
 .slots {
-  outline: 1px solid gold;
+  /* outline: 1px solid gold; */
   display: flex;
   justify-content: center;
   align-items: flex-end;
   width: 25%;
   text-align: center;
+}
+
+#slot1 {
+  /* border: 1px solid gold; */
+}
+
+#slot2 {
+  border-left: 1px solid gold;
+  border-right: 1px solid gold;
+}
+
+#slot3 {
+  border-right: 1px solid gold;
+}
+
+#slot4 {
+  /* border: 1px solid gold; */
 }
 
 .turtles {
@@ -212,10 +247,12 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-left: 1px solid gold;
+  border-bottom: 1px solid gold;
+  border-top: 1px solid gold;
 }
 
 .panel {
-  outline: 1px solid green;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -229,19 +266,153 @@ html {
   height: 75%;
 }
 
+input[type="radio"]:checked + label {
+  border: 1px solid white;
+}
+
+.div-turtle:checked {
+  border: 1px solid white;
+}
+
+
+
+
+
+
+
 #options {
-  height: 40%;
+  height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+
+
+
+
+
+
 #button {
-  height: 30%;
+  height: 10%;
 }
 
+#button button {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+#start-button {
+  background-color: rgb(191, 255, 191);
+}
+
+#restart-button {
+  background-color: #a5b9fd;
+}
+
+#restart-button:disabled {
+  background-color: #ff9797;
+}
+
+
+
+
+
+
+
+
 #results {
-  height: 30%;
+  height: 40%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#results-header {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#race-results {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#WoL-container {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#WoL-win {
+  background-color: blue;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#WoL-lose {
+  background-color: red;
+  color: black;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#results-container {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+.turtle-results {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.turtle-results-place {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.turtle-results-name {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }

@@ -21,7 +21,7 @@ export default class OptionsPanel extends Component {
     if (!this.props.uberstate.chosenTurtle) {
       winOrLose = <div className='WoL' id='WoL-none'>No Turtle Selected</div>
     } else if (this.props.uberstate.showResults && this.props.uberstate.winner) {
-      winOrLose = <div className='WoL' id='WoL-win'>You Win</div>
+      winOrLose = <div className='WoL' id='WoL-win'>You Win!</div>
     } else if (this.props.uberstate.showResults && !this.props.uberstate.winner) {
       winOrLose = <div className='WoL' id='WoL-lose'>You Lose</div>
     }
@@ -88,9 +88,9 @@ export default class OptionsPanel extends Component {
 
     let startStopButton = ''
     if (this.props.uberstate.raceStarted == false) {
-      startStopButton = <button onClick={() => {this.props.startRace()}}>start</button>
+      startStopButton = <button id='start-button' onClick={() => {this.props.startRace()}}>start</button>
     } else {
-      startStopButton = <button disabled={!this.props.uberstate.showResults} onClick={() => {this.props.restartRace()}}>restart</button>
+      startStopButton = <button id='restart-button' disabled={!this.props.uberstate.showResults} onClick={() => {this.props.restartRace()}}>restart</button>
     }
 
     setTimeout(() => {
@@ -109,13 +109,8 @@ export default class OptionsPanel extends Component {
     } else if (this.props.uberstate.raceResults[3].name == this.props.uberstate.chosenTurtle) {
       $('#turtle-result4').css({ 'border': '1px solid white'})
     }
-
-    // disab = () => {
-    //   if (!this.props.uberstate.raceStarted) {
-    //     return 
-    //   }
-    // }
     
+
 
     return (
       <>
@@ -141,19 +136,22 @@ export default class OptionsPanel extends Component {
           </div>
           <div className='panel' id='button'>
             {startStopButton}
-            <button onClick={() => {(console.log(this.state))}}>this.state</button>
-            <button onClick={() => {(console.log(this.props))}}>this.props</button>
+            {/* <button onClick={() => {(console.log(this.props))}}>props</button> */}
           </div>
           <div className='panel' id='results'>
             <div id='results-header'>
-              <span>results</span>
+              <span>Results</span>
             </div>
             <div id='race-results'>
-              {winOrLose}
-              {result1HTML}
-              {result2HTML}
-              {result3HTML}
-              {result4HTML}
+              <div id='WoL-container'>
+                {winOrLose}
+              </div>
+              <div id='results-container'>
+                {result1HTML}
+                {result2HTML}
+                {result3HTML}
+                {result4HTML}
+              </div>
             </div>
           </div>
         </div>
