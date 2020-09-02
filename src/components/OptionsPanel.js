@@ -104,13 +104,17 @@ export default class OptionsPanel extends Component {
     }, 3000)
 
     if (this.props.uberstate.raceResults[0].name == this.props.uberstate.chosenTurtle) {
-      $('#turtle-result1').css({ 'border': '1px solid white'})
+      $('#turtle-result1').css({ 'border-top': '1px solid white'})
+      $('#turtle-result1').css({ 'border-bottom': '1px solid white'})
     } else if (this.props.uberstate.raceResults[1].name == this.props.uberstate.chosenTurtle) {
-      $('#turtle-result2').css({ 'border': '1px solid white'})
+      $('#turtle-result2').css({ 'border-top': '1px solid white'})
+      $('#turtle-result2').css({ 'border-bottom': '1px solid white'})
     } else if (this.props.uberstate.raceResults[2].name == this.props.uberstate.chosenTurtle) {
-      $('#turtle-result3').css({ 'border': '1px solid white'})
+      $('#turtle-result3').css({ 'border-top': '1px solid white'})
+      $('#turtle-result3').css({ 'border-bottom': '1px solid white'})
     } else if (this.props.uberstate.raceResults[3].name == this.props.uberstate.chosenTurtle) {
-      $('#turtle-result4').css({ 'border': '1px solid white'})
+      $('#turtle-result4').css({ 'border-top': '1px solid white'})
+      $('#turtle-result4').css({ 'border-bottom': '1px solid white'})
     }
     
 
