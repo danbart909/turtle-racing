@@ -114,7 +114,6 @@ export default class OptionsPanel extends Component {
       $('#turtle-result3').css({ 'border-bottom': '1px solid white'})
     } else if (this.props.uberstate.raceResults[3].name == this.props.uberstate.chosenTurtle) {
       $('#turtle-result4').css({ 'border-top': '1px solid white'})
-      $('#turtle-result4').css({ 'border-bottom': '1px solid white'})
     }
     
 

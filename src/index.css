@@ -349,20 +349,6 @@ html {
 
 
 
-/* - */
-
-
-
-input[type="radio"]:checked + label {
-  border: 1px solid white;
-}
-
-.div-turtle:checked {
-  border: 1px solid white;
-}
-
-
-
 
 
 
