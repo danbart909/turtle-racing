@@ -285,14 +285,29 @@ html {
 .div-turtle label {
   display: inline-flex;
   color: black;
-  padding: 10px 20px;
-  margin-top: 20px;
-  /* font-size: 20px; */
+  padding: 15%;
+  margin-top: 40%;
   border: 1px solid transparent;
   background-color: white;
   border-radius: 6px;
   transition-duration: 0.5s;
 }
+
+/* #div-turtle1 {
+  outline: 2px solid teal;
+}
+
+#div-turtle2 {
+  outline: 2px solid lightcoral;
+}
+
+#div-turtle3 {
+  outline: 2px solid lightpink;
+}
+
+#div-turtle4 {
+  outline: 2px solid lightsalmon;
+} */
 
 /* #div-turtle1 label {
   background-color: lightblue;
@@ -354,10 +369,11 @@ html {
 
 
 #options {
-  height: 50%;
+  height: 55%;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-y: auto;
 }
 
 
@@ -367,7 +383,7 @@ html {
 
 
 #button {
-  height: 10%;
+  height: 5%;
 }
 
 #button button {
@@ -474,7 +490,7 @@ html {
 
 .turtle-results-place {
   height: 100%;
-  width: 50%;
+  width: 33%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -483,7 +499,16 @@ html {
 
 .turtle-results-name {
   height: 100%;
-  width: 50%;
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.turtle-results-time {
+  height: 100%;
+  width: 33%;
   display: flex;
   justify-content: center;
   align-items: center;

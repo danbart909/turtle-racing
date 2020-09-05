@@ -12,6 +12,39 @@ export default class OptionsPanel extends Component {
     }
   }
 
+  time1 = () => {
+    let minutes = this.props.uberstate.raceResults[0].finalScore.toFixed(2)
+    let sign = minutes < 0 ? "-" : "";
+    let min = Math.floor(Math.abs(minutes));
+    let sec = Math.floor((Math.abs(minutes) * 60) % 60);
+    return sign + min + ":" + (sec < 10 ? "0" : "") + sec;
+    // return sign + (min < 10 ? "0" : "") + min + ":" + (sec < 10 ? "0" : "") + sec;
+   }
+
+   time2 = () => {
+    let minutes = this.props.uberstate.raceResults[1].finalScore.toFixed(2)
+    let sign = minutes < 0 ? "-" : "";
+    let min = Math.floor(Math.abs(minutes));
+    let sec = Math.floor((Math.abs(minutes) * 60) % 60);
+    return sign + min + ":" + (sec < 10 ? "0" : "") + sec;
+   }
+
+   time3 = () => {
+    let minutes = this.props.uberstate.raceResults[2].finalScore.toFixed(2)
+    let sign = minutes < 0 ? "-" : "";
+    let min = Math.floor(Math.abs(minutes));
+    let sec = Math.floor((Math.abs(minutes) * 60) % 60);
+    return sign + min + ":" + (sec < 10 ? "0" : "") + sec;
+   }
+
+   time4 = () => {
+    let minutes = this.props.uberstate.raceResults[3].finalScore.toFixed(2)
+    let sign = minutes < 0 ? "-" : "";
+    let min = Math.floor(Math.abs(minutes));
+    let sec = Math.floor((Math.abs(minutes) * 60) % 60);
+    return sign + min + ":" + (sec < 10 ? "0" : "") + sec;
+   }
+
   render() {
 
     const state = this.props.uberstate
@@ -36,9 +69,9 @@ export default class OptionsPanel extends Component {
           <div className='turtle-results-name' id='turtle-result1-name'>
             <span>{this.props.uberstate.raceResults[0].name}</span>
           </div>
-          {/* <div className='turtle-results-time' id='turtle-result1-time'>
-            <span>{this.props.uberstate.raceResults[0].finalScore}</span>
-          </div> */}
+          <div className='turtle-results-time' id='turtle-result1-time'>
+            <span>{this.time1()} s</span>
+          </div>
         </div>
     } else {
       result1HTML = ''
@@ -53,6 +86,9 @@ export default class OptionsPanel extends Component {
           </div>
           <div className='turtle-results-name' id='turtle-result2-name'>
             <span>{this.props.uberstate.raceResults[1].name}</span>
+          </div>
+          <div className='turtle-results-time' id='turtle-result2-time'>
+            <span>{this.time2()} s</span>
           </div>
         </div>
     } else {
@@ -69,6 +105,9 @@ export default class OptionsPanel extends Component {
           <div className='turtle-results-name' id='turtle-result3-name'>
             <span>{this.props.uberstate.raceResults[2].name}</span>
           </div>
+          <div className='turtle-results-time' id='turtle-result3-time'>
+            <span>{this.time3()} s</span>
+          </div>
         </div>
     } else {
       result3HTML = ''
@@ -84,6 +123,9 @@ export default class OptionsPanel extends Component {
           <div className='turtle-results-name' id='turtle-result4-name'>
             <span>{this.props.uberstate.raceResults[3].name}</span>
           </div>
+          <div className='turtle-results-time' id='turtle-result4-time'>
+          <span>{this.time4()} s</span>
+          </div>
         </div>
     } else {
       result4HTML = ''
@@ -93,7 +135,7 @@ export default class OptionsPanel extends Component {
     if (this.props.uberstate.raceStarted == false) {
       startStopButton = <button id='start-button' onClick={() => {this.props.startRace()}}>start</button>
     } else {
-      startStopButton = <button id='restart-button' disabled={!this.props.uberstate.showResults} onClick={() => {this.props.restartRace()}}>restart</button>
+      startStopButton = <button id='restart-button' disabled={!this.props.uberstate.showResults} onClick={() => {this.props.restartRace()}}>restart and select new turtle</button>
     }
 
     setTimeout(() => {
