@@ -12,6 +12,38 @@ export default class OptionsPanel extends Component {
     }
   }
 
+  firstDisable = () => {
+    if (this.props.uberstate.chosenTurtle === 'Inky' && !this.props.uberstate.raceStarted) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  secondDisable = () => {
+    if (this.props.uberstate.chosenTurtle === 'Blinky' && !this.props.uberstate.raceStarted) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  thirdDisable = () => {
+    if (this.props.uberstate.chosenTurtle === 'Pinky' && !this.props.uberstate.raceStarted) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  fourthDisable = () => {
+    if (this.props.uberstate.chosenTurtle === 'Clyde' && !this.props.uberstate.raceStarted) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   render() {
 
     const state = this.props.uberstate
@@ -148,10 +180,78 @@ export default class OptionsPanel extends Component {
                 <input type='radio' name='radio-turtle' id='radio-turtle4' value='Clyde' role='radio'  disabled={this.props.uberstate.raceStarted} /><label id='radio-label-turtle4' className='radio-label-turtle' htmlFor='radio-turtle4'>Clyde</label>
               </div>
             </form>
+            <div id='turtle-bet'>
+              <div id='bet-turtle1' className='bet-turtle'>
+                <input
+                  type='number'
+                  id='turtle1-number'
+                  className='turtle-number'
+                  name='radio-turtle'
+                  // name='Inky'
+                  min='1'
+                  max='50'
+                  disabled={this.firstDisable()}
+                  onChange={(e) => {this.props.setBetting(e.target.value)}}
+                />
+              </div>
+              <div id='bet-turtle2' className='bet-turtle'>
+              <input
+                  type='number'
+                  id='turtle2-number'
+                  className='turtle-number'
+                  name='radio-turtle'
+                  // name='Blinky'
+                  min='1'
+                  max='50'
+                  disabled={this.secondDisable()}
+                  onChange={(e) => {this.props.setBetting(e.target.value)}}
+                />
+              </div>
+              <div id='bet-turtle3' className='bet-turtle'>
+              <input
+                  type='number'
+                  id='turtle3-number'
+                  className='turtle-number'
+                  name='radio-turtle'
+                  // name='Pinky'
+                  min='1'
+                  max='50'
+                  disabled={this.thirdDisable()}
+                  onChange={(e) => {this.props.setBetting(e.target.value)}}
+                />
+              </div>
+              <div id='bet-turtle4' className='bet-turtle'>
+              <input
+                  type='number'
+                  id='turtle4-number'
+                  className='turtle-number'
+                  name='radio-turtle'
+                  // name='Clyde'
+                  min='1'
+                  max='50'
+                  disabled={this.fourthDisable()}
+                  onChange={(e) => {this.props.setBetting(e.target.value)}}
+                />
+              </div>
+            </div>
+            <div id='turtle-odds'>
+              <div id='odds-turtle1' className='odds-turtle'>
+                <span>1 in 4</span>
+              </div>
+              <div id='odds-turtle2' className='odds-turtle'>
+                <span>1 in 4</span>
+              </div>
+              <div id='odds-turtle3' className='odds-turtle'>
+                <span>1 in 4</span>
+              </div>
+              <div id='odds-turtle4' className='odds-turtle'>
+                <span>1 in 4</span>
+              </div>
+            </div>
           </div>
           <div className='panel' id='button'>
             {startStopButton}
-            {/* <button onClick={() => {(console.log(this.props))}}>props</button> */}
+            <button onClick={() => {(console.log(this.props.uberstate))}}>props</button>
           </div>
           <div className='panel' id='results'>
             <div id='results-header'>

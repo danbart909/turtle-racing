@@ -8,10 +8,18 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      totalCash: '',
+      adjustment: 0,
+      endTotal: 0,
       raceStarted: false,
       showResults: false,
       chosenTurtle: '',
       checkChosenTurtle: '',
+      InkyBet: 0,
+      BlinkyBet: 0,
+      PinkyBet: 0,
+      ClydeBet: 0,
+      gameStarted: false,
       nameOrder: [
         {
           name: '',
@@ -65,8 +73,8 @@ export default class App extends Component {
   
   getLuckNum = () => {
 
-    const min = .8
-    const max = 1.2
+    const min = 3.3
+    const max = 6.6
     return (Math.random() * (max - min)) + min;
 
   }
@@ -79,7 +87,7 @@ export default class App extends Component {
 
   }
 
-  race() {
+  race = () => {
 
     const track = {
       length1: 90,
@@ -91,26 +99,26 @@ export default class App extends Component {
     const turtle = [
       {
         name: 'Inky',
-        maxSpeed: this.getNum(5, 9),
-        acceleration: this.getNum(7, 10),
+        maxSpeed: this.getNum(6, 11),
+        acceleration: this.getNum(6, 11),
         luck: this.getLuckNum()
       },
       {
         name: 'Blinky',
-        maxSpeed: this.getNum(6, 8),
-        acceleration: this.getNum(5, 9),
+        maxSpeed: this.getNum(7, 10),
+        acceleration: this.getNum(7, 10),
         luck: this.getLuckNum()
       },
       {
         name: 'Pinky',
-        maxSpeed: this.getNum(7, 10),
-        acceleration: this.getNum(6, 8),
+        maxSpeed: this.getNum(8, 9),
+        acceleration: this.getNum(8, 9),
         luck: this.getLuckNum()
       },
       {
         name: 'Clyde',
-        maxSpeed: this.getNum(8, 9),
-        acceleration: this.getNum(8, 9),
+        maxSpeed: this.getNum(7.5, 9.5,),
+        acceleration: this.getNum(7.5, 9.5),
         luck: this.getLuckNum()
       }
     ]
@@ -146,31 +154,11 @@ export default class App extends Component {
     })
     return finishOrder;
 
-}
-
-
-
-  
-
-  updateChosenTurtle = (e) => {
-
-    this.setState({
-      chosenTurtle: e.target.value
-    })
-
   }
 
   startRace = () => {
 
-    console.log(`race started - your turtle is ${this.state.chosenTurtle}`)
-
     let results = this.race()
-
-    if (results[0].name == this.state.chosenTurtle) {
-      this.setState({ winner: true })
-    } else {
-      this.setState({ winner: false })
-    }
 
     if (!this.state.chosenTurtle && this.state.raceStarted) {
       this.setState({ checkChosenTurtle: false })
@@ -180,15 +168,22 @@ export default class App extends Component {
 
     this.setState({
       raceStarted: true,
+      gameStarted: true,
         timeValues: [
           {1: results[0].finalScore},
           {2: results[1].finalScore},
           {3: results[2].finalScore},
           {4: results[3].finalScore}
         ]
-    })
+    });
 
-    console.log(this.state)
+    setTimeout(
+      function() {
+        this.moneyCalc()
+      }
+      .bind(this),
+      2900
+    )
 
     setTimeout(
       function() {
@@ -200,14 +195,153 @@ export default class App extends Component {
       3000
     )
 
+    if (!this.state.totalCash) {
+      this.setState({
+        totalCash: 50
+      })
+      console.log(`starting allowance received`)
+    } else {
+      console.log(`no starting allowance received`)
+    }
+
+    if (this.state.chosenTurtle == 'Inky') {
+      let modifier = this.state.InkyBet * 2
+      this.setState({ adjustment: modifier })
+    } else if (this.state.chosenTurtle == 'Blinky') {
+      let modifier = this.state.BlinkyBet * 50
+      this.setState({ adjustment: modifier })
+    } else if (this.state.chosenTurtle == 'Pinky') {
+      let modifier = this.state.PinkyBet * 2
+      this.setState({ adjustment: modifier })
+    } else if (this.state.chosenTurtle == 'Clyde') {
+      let modifier = this.state.ClydeBet / 2
+      this.setState({ adjustment: modifier })
+    } else {
+      let modifier = ''
+    }
+
+  }
+
+  moneyCalc = () => {
+
+    let final = ''
+    let totalCash = this.state.totalCash
+    let adjustment = this.state.adjustment
+
+    let currentBet = ''
+
+    if (this.state.chosenTurtle === 'Inky') {
+      currentBet = this.state.InkyBet
+    } else if (this.state.chosenTurtle === 'Blinky') {
+      currentBet = this.state.BlinkyBet
+    } else if (this.state.chosenTurtle === 'Pinky') {
+      currentBet = this.state.PinkyBet
+    } else if (this.state.chosenTurtle === 'Clyde') {
+      currentBet = this.state.ClydeBet
+    }
+
+    console.log(currentBet)
+
+    if (this.state.raceResults[0].name == this.state.chosenTurtle) {
+
+      final = (totalCash + (currentBet * 4))
+      console.log('win', final)
+      this.setState({
+        winner: true,
+        endTotal: final
+      }, () => {
+        console.log('win', final, this.state, totalCash, currentBet, adjustment);
+      })
+
+    } else {
+      final = (totalCash - (currentBet / 4))
+      this.setState({
+        winner: false,
+        endTotal: final
+      }, () => {
+        console.log('lose', final, this.state, totalCash, currentBet, adjustment);
+      })
+    }
+
   }
 
   restartRace = () => {
 
     this.setState ({
       raceStarted: false,
-      showResults: false
+      showResults: false,
+      totalCash: this.state.endTotal
     })
+
+  }
+
+  // updateCurrentBet = () => {
+
+  //   if (this.state.chosenTurtle == 'Inky') {
+  //     this.setState({ currentBet: Number(this.state.InkyBet) })
+  //   } if (this.state.chosenTurtle == 'Blinky') {
+  //     this.setState({ currentBet: Number(this.state.BlinkyBet) })
+  //   } if (this.state.chosenTurtle == 'Pinky') {
+  //     this.setState({ currentBet: Number(this.state.PinkyBet) })
+  //   } if (this.state.chosenTurtle == 'Clyde') {
+  //     this.setState({ currentBet: Number(this.state.ClydeBet) })
+  //   }
+
+  // }
+
+  updateChosenTurtle = (e) => {
+
+    let name = e.target.value
+
+    this.setState({
+      chosenTurtle: name,
+    })
+
+    console.log(e.target, e.target.value)
+
+    let bet = ''
+
+    if (this.state.chosenTurtle === 'Inky') {
+      bet = this.state.InkyBet
+    } else if (this.state.chosenTurtle === 'Blinky') {
+      bet = this.state.BlinkyBet
+    } else if (this.state.chosenTurtle === 'Pinky') {
+      bet = this.state.PinkyBet
+    } else if (this.state.chosenTurtle === 'Clyde') {
+      bet = this.state.ClydeBet
+    }
+
+    console.log(bet)
+
+    // this.setBetting(bet)
+
+  }
+
+  setBetting = (e) => {
+
+    let value = e
+
+    // this.setState ({
+    //   currentBet: Number(value)
+    // })
+
+    if (this.state.chosenTurtle === 'Inky') {
+      this.setState ({
+        InkyBet: Number(value)
+      })
+    } else if (this.state.chosenTurtle === 'Blinky') {
+      this.setState ({
+        BlinkyBet: Number(value)
+      })
+    } else if (this.state.chosenTurtle === 'Pinky') {
+      this.setState ({
+        PinkyBet: Number(value)
+      })
+    } else if (this.state.chosenTurtle === 'Clyde') {
+      this.setState ({
+        ClydeBet: Number(value)
+      })
+    }
 
   }
 
@@ -227,6 +361,7 @@ export default class App extends Component {
                 <MainPanel
                   uberstate={this.state}
                 />
+                <button onClick={() => {console.log(this.state)}}>state</button>
               </div>
             </div>
             <div id='left'>
@@ -235,6 +370,7 @@ export default class App extends Component {
                 updateChosenTurtle={this.updateChosenTurtle}
                 startRace={this.startRace}
                 restartRace={this.restartRace}
+                setBetting={this.setBetting}
               />
             </div>
           </div>
