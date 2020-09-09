@@ -15,10 +15,10 @@ export default class App extends Component {
       showResults: false,
       chosenTurtle: '',
       checkChosenTurtle: '',
-      InkyBet: 10,
-      BlinkyBet: 10,
-      PinkyBet: 10,
-      ClydeBet: 10,
+      InkyBet: 0,
+      BlinkyBet: 0,
+      PinkyBet: 0,
+      ClydeBet: 0,
       gameStarted: false,
       nameOrder: [
         {

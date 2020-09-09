@@ -156,12 +156,55 @@ export default class OptionsPanel extends Component {
     } else if (this.props.uberstate.raceResults[3].name == this.props.uberstate.chosenTurtle) {
       $('#turtle-result4').css({ 'border-top': '1px solid white'})
     }
+
+    if (this.props.uberstate.InkyBet !== 0) {
+      $('#odds-turtle1-win').css({ 'color': 'green' })
+      $('#odds-turtle1-lose').css({ 'color': 'red' })
+    } else {
+      $('#odds-turtle1-win').css({ 'color': 'white' })
+      $('#odds-turtle1-lose').css({ 'color': 'white' })
+    }
+
+    if (this.props.uberstate.BlinkyBet !== 0) {
+      $('#odds-turtle2-win').css({ 'color': 'green' })
+      $('#odds-turtle2-lose').css({ 'color': 'red' })
+    } else {
+      $('#odds-turtle2-win').css({ 'color': 'white' })
+      $('#odds-turtle2-lose').css({ 'color': 'white' })
+    }
+
+    if (this.props.uberstate.PinkyBet !== 0) {
+      $('#odds-turtle3-win').css({ 'color': 'green' })
+      $('#odds-turtle3-lose').css({ 'color': 'red' })
+    } else {
+      $('#odds-turtle3-win').css({ 'color': 'white' })
+      $('#odds-turtle3-lose').css({ 'color': 'white' })
+    }
+
+    if (this.props.uberstate.ClydeBet !== 0) {
+      $('#odds-turtle4-win').css({ 'color': 'green' })
+      $('#odds-turtle4-lose').css({ 'color': 'red' })
+    } else {
+      $('#odds-turtle4-win').css({ 'color': 'white' })
+      $('#odds-turtle4-lose').css({ 'color': 'white' })
+    }
     
 
 
     return (
       <>
         <div id='options-panel'>
+          <div className='panel' id='options-header'>
+            <div className='options-header-part' id='options-header-part1'>
+              <span></span>
+            </div>
+            <div className='options-header-part' id='options-header-part2'>
+              <span></span>
+            </div>
+            <div className='options-header-part' id='options-header-part3'>
+              <span></span>
+            </div>
+          </div>
           <div className='panel' id='options'>
             <form
               id='turtle-radio-form'
@@ -189,7 +232,6 @@ export default class OptionsPanel extends Component {
                   name='radio-turtle'
                   min='1'
                   max='50'
-                  defaultValue='10'
                   disabled={this.firstDisable()}
                   onChange={(e) => {this.props.setBetting(e.target.value)}}
                 />
@@ -202,7 +244,6 @@ export default class OptionsPanel extends Component {
                   name='radio-turtle'
                   min='1'
                   max='50'
-                  defaultValue='10'
                   disabled={this.secondDisable()}
                   onChange={(e) => {this.props.setBetting(e.target.value)}}
                 />
@@ -215,7 +256,6 @@ export default class OptionsPanel extends Component {
                   name='radio-turtle'
                   min='1'
                   max='50'
-                  defaultValue='10'
                   disabled={this.thirdDisable()}
                   onChange={(e) => {this.props.setBetting(e.target.value)}}
                 />
@@ -228,7 +268,6 @@ export default class OptionsPanel extends Component {
                   name='radio-turtle'
                   min='1'
                   max='50'
-                  defaultValue='10'
                   disabled={this.fourthDisable()}
                   onChange={(e) => {this.props.setBetting(e.target.value)}}
                 />
@@ -236,16 +275,20 @@ export default class OptionsPanel extends Component {
             </div>
             <div id='turtle-odds'>
               <div id='odds-turtle1' className='odds-turtle'>
-                <span>1 in 4</span>
+                <span id='odds-turtle1-win'>+{this.props.uberstate.InkyBet * 4}</span>
+                <span id='odds-turtle1-lose'>-{this.props.uberstate.InkyBet / 4}</span>
               </div>
               <div id='odds-turtle2' className='odds-turtle'>
-                <span>1 in 4</span>
+                <span id='odds-turtle2-win'>+{this.props.uberstate.BlinkyBet * 4}</span>
+                <span id='odds-turtle2-lose'>-{this.props.uberstate.BlinkyBet / 4}</span>
               </div>
               <div id='odds-turtle3' className='odds-turtle'>
-                <span>1 in 4</span>
+                <span id='odds-turtle3-win'>+{this.props.uberstate.PinkyBet * 4}</span>
+                <span id='odds-turtle3-lose'>-{this.props.uberstate.PinkyBet / 4}</span>
               </div>
               <div id='odds-turtle4' className='odds-turtle'>
-                <span>1 in 4</span>
+                <span id='odds-turtle4-win'>+{this.props.uberstate.ClydeBet * 4}</span>
+                <span id='odds-turtle4-lose'>-{this.props.uberstate.ClydeBet / 4}</span>
               </div>
             </div>
           </div>
