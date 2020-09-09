@@ -48,14 +48,17 @@ export default class OptionsPanel extends Component {
 
     const state = this.props.uberstate
     const raceResults = state.raceResults
+    let turtle = this.props.uberstate.chosenTurtle
     
     let winOrLose = ''
-    if (!this.props.uberstate.chosenTurtle) {
+    if (!turtle) {
       winOrLose = <div className='WoL' id='WoL-none'>No Turtle Selected</div>
-    } else if (this.props.uberstate.showResults && this.props.uberstate.winner) {
+    } else if (state.showResults && state.winner) {
       winOrLose = <div className='WoL' id='WoL-win'>You Win!</div>
-    } else if (this.props.uberstate.showResults && !this.props.uberstate.winner) {
+    } else if (state.showResults && !state.winner) {
       winOrLose = <div className='WoL' id='WoL-lose'>You Lose</div>
+    } else if ((turtle == 'Inky' && state.InkyBet == 0) || (turtle == 'Blinky' && state.BlinkyBet == 0) || (turtle == 'Pinky' && state.PinkyBet == 0) || (turtle == 'Clyde' && state.ClydeBet == 0)) {
+      winOrLose = <div className='WoL' id='WoL-no-bet'>No Bet</div>
     }
     
     let result1HTML = ''
@@ -188,23 +191,40 @@ export default class OptionsPanel extends Component {
       $('#odds-turtle4-win').css({ 'color': 'white' })
       $('#odds-turtle4-lose').css({ 'color': 'white' })
     }
+
+    // if (!this.props.uberstate.chosenTurtle) {
+    //   $('#options-header-part2').css({ 'color': 'white' })
+    //   $('#options-header-part2').css({ 'background-color': 'black' })
+    //   $('#options-header-part3').css({ 'color': 'white' })
+    //   $('#options-header-part3').css({ 'background-color': 'black' })
+    // } else if (this.props.uberstate.chosenTurtle && (this.props.uberstate.InkyBet == 0) && (this.props.uberstate.PinkyBet == 0) && (this.props.uberstate.PinkyBet == 0) && (this.props.uberstate.ClydeBet == 0)) {
+    //   $('#options-header-part2').css({ 'color': 'white' })
+    //   $('#options-header-part2').css({ 'background-color': 'green' })
+    //   $('#options-header-part3').css({ 'color': 'white' })
+    //   $('#options-header-part3').css({ 'background-color': 'black' })
+    // } else {
+    //   $('#options-header-part2').css({ 'color': 'white' })
+    //   $('#options-header-part2').css({ 'background-color': 'green' })
+    //   $('#options-header-part3').css({ 'color': 'white' })
+    //   $('#options-header-part3').css({ 'background-color': 'green' })
+    // }
     
 
 
     return (
       <>
         <div id='options-panel'>
-          <div className='panel' id='options-header'>
+          {/* <div className='panel' id='options-header'>
             <div className='options-header-part' id='options-header-part1'>
-              <span></span>
+              <span>1. Select Ghost</span>
             </div>
             <div className='options-header-part' id='options-header-part2'>
-              <span></span>
+              <span>2. Place Bet</span>
             </div>
             <div className='options-header-part' id='options-header-part3'>
-              <span></span>
+              <span>3. Click Start</span>
             </div>
-          </div>
+          </div> */}
           <div className='panel' id='options'>
             <form
               id='turtle-radio-form'

@@ -284,6 +284,34 @@ input[type=number]::-webkit-inner-spin-button {
   width: 100%;
 }
 
+/* #options-header {
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.options-header-part {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-bottom: 1px solid white;
+}
+
+#options-header-part1 {
+  color: white;
+  background-color: green;
+}
+
+#options-header-part2 {
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+} */
+
 #turtle-radio-form {
   height: 100%;
   width: 33%;
