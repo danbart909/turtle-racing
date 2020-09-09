@@ -20,6 +20,11 @@ export default class App extends Component {
       PinkyBet: 0,
       ClydeBet: 0,
       gameStarted: false,
+      InkyWins: 0,
+      BlinkyWins: 0,
+      PinkyWins: 0,
+      ClydeWins: 0,
+      totalGames: 0,
       nameOrder: [
         {
           name: '',
@@ -177,31 +182,28 @@ export default class App extends Component {
         ]
     });
 
-    setTimeout(
-      function() {
-        this.moneyCalc()
-      }
-      .bind(this),
-      2900
-    )
+    // setTimeout(
+    //   function() {
+    //     this.moneyCalc()
+    //   }
+    //   .bind(this),
+    //   2900
+    // )
 
-    setTimeout(
-      function() {
-        this.setState({
-          showResults: true
-        })
-      }
-      .bind(this),
-      3000
-    )
+    // setTimeout(
+    //   function() {
+    //     this.setState({
+    //       showResults: true
+    //     })
+    //   }
+    //   .bind(this),
+    //   3000
+    // )
 
     if (!this.state.totalCash) {
       this.setState({
         totalCash: 50
       })
-      console.log(`starting allowance received`)
-    } else {
-      console.log(`no starting allowance received`)
     }
 
     if (this.state.chosenTurtle == 'Inky') {
@@ -219,6 +221,10 @@ export default class App extends Component {
     } else {
       let modifier = ''
     }
+
+    // initialize moneyCalc()
+
+    this.moneyCalc()
 
   }
 
@@ -240,18 +246,18 @@ export default class App extends Component {
       currentBet = this.state.ClydeBet
     }
 
-    console.log(currentBet)
+    // console.log(currentBet)
 
     if (this.state.raceResults[0].name == this.state.chosenTurtle) {
 
       final = (totalCash + (currentBet * 4))
-      console.log('win', final)
       this.setState({
         winner: true,
         endTotal: final
-      }, () => {
-        console.log('win', final, this.state, totalCash, currentBet, adjustment);
       })
+      // }, () => {
+        // console.log('win', final, this.state, totalCash, currentBet, adjustment);
+      // })
 
     } else {
       final = (totalCash - (currentBet / 4))
@@ -259,9 +265,35 @@ export default class App extends Component {
         winner: false,
         endTotal: final
       }, () => {
-        console.log('lose', final, this.state, totalCash, currentBet, adjustment);
+        // console.log('lose', final, this.state, totalCash, currentBet, adjustment);
       })
     }
+
+    // increment state and initiate restartRace()
+
+    // if (this.state.raceResults[0].name == 'Inky') {
+    //   this.setState({ InkyWins: this.state.InkyWins++ })
+    // } else if (this.state.raceResults[0].name == 'Blinky') {
+    //   this.setState({ BlinkyWins: this.state.BlinkyWins++ })
+    // } else if (this.state.raceResults[0].name == 'Pinky') {
+    //   this.setState({ PinkyWins: this.state.PinkyWins++ })
+    // } else if (this.state.raceResults[0].name == 'Clyde') {
+    //   this.setState({ ClydeWins: this.state.ClydeWins++ })
+    // }
+
+    // this.setState({ totalGames: this.state.totalGames + 1 })
+
+    // console.log(this.state.totalGames, this.state.InkyWins, this.state.BlinkyWins, this.state.PinkyWins, this.state.ClydeWins)
+
+    // this.restartRace()
+
+    setTimeout(
+    function() {
+      this.restartRace()
+    }
+    .bind(this),
+    50
+    )
 
   }
 
@@ -272,6 +304,28 @@ export default class App extends Component {
       showResults: false,
       totalCash: this.state.endTotal
     })
+
+    // initialize race
+
+    if (this.state.raceResults[0].name == 'Inky') {
+      this.setState({ InkyWins: this.state.InkyWins + 1 })
+    } else if (this.state.raceResults[0].name == 'Blinky') {
+      this.setState({ BlinkyWins: this.state.BlinkyWins + 1 })
+    } else if (this.state.raceResults[0].name == 'Pinky') {
+      this.setState({ PinkyWins: this.state.PinkyWins + 1 })
+    } else if (this.state.raceResults[0].name == 'Clyde') {
+      this.setState({ ClydeWins: this.state.ClydeWins + 1 })
+    }
+
+    this.setState({ totalGames: this.state.totalGames + 1 })
+
+    console.log(this.state.totalGames, this.state.InkyWins, this.state.BlinkyWins, this.state.PinkyWins, this.state.ClydeWins)
+
+    if (this.state.totalGames == 200) {
+      return ''
+    } else {
+      this.startRace()
+    }
 
   }
 
