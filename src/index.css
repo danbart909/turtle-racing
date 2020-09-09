@@ -6,6 +6,10 @@ html {
   font-size: 100%;
 }
 
+input[type=number]::-webkit-inner-spin-button {
+  opacity: 1;
+}
+
 #root {
   background-color: black;
   color: whitesmoke;
