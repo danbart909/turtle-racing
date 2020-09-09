@@ -190,6 +190,7 @@ export default class OptionsPanel extends Component {
                   // name='Inky'
                   min='1'
                   max='50'
+                  defaultValue='10'
                   disabled={this.firstDisable()}
                   onChange={(e) => {this.props.setBetting(e.target.value)}}
                 />
@@ -203,6 +204,7 @@ export default class OptionsPanel extends Component {
                   // name='Blinky'
                   min='1'
                   max='50'
+                  defaultValue='10'
                   disabled={this.secondDisable()}
                   onChange={(e) => {this.props.setBetting(e.target.value)}}
                 />
@@ -216,6 +218,7 @@ export default class OptionsPanel extends Component {
                   // name='Pinky'
                   min='1'
                   max='50'
+                  defaultValue='10'
                   disabled={this.thirdDisable()}
                   onChange={(e) => {this.props.setBetting(e.target.value)}}
                 />
@@ -229,6 +232,7 @@ export default class OptionsPanel extends Component {
                   // name='Clyde'
                   min='1'
                   max='50'
+                  defaultValue='10'
                   disabled={this.fourthDisable()}
                   onChange={(e) => {this.props.setBetting(e.target.value)}}
                 />

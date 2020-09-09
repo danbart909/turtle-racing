@@ -45,7 +45,7 @@ export default class Header extends Component {
               <span>{this.header()}</span>
             </div>
             <div id='header-bot-2'>
-              <span>{this.cashTotal()}</span>
+              <span>${this.cashTotal()}</span>
             </div>
           </div>
         </div>

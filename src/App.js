@@ -15,10 +15,10 @@ export default class App extends Component {
       showResults: false,
       chosenTurtle: '',
       checkChosenTurtle: '',
-      InkyBet: 0,
-      BlinkyBet: 0,
-      PinkyBet: 0,
-      ClydeBet: 0,
+      InkyBet: 10,
+      BlinkyBet: 10,
+      PinkyBet: 10,
+      ClydeBet: 10,
       gameStarted: false,
       nameOrder: [
         {
@@ -275,20 +275,6 @@ export default class App extends Component {
 
   }
 
-  // updateCurrentBet = () => {
-
-  //   if (this.state.chosenTurtle == 'Inky') {
-  //     this.setState({ currentBet: Number(this.state.InkyBet) })
-  //   } if (this.state.chosenTurtle == 'Blinky') {
-  //     this.setState({ currentBet: Number(this.state.BlinkyBet) })
-  //   } if (this.state.chosenTurtle == 'Pinky') {
-  //     this.setState({ currentBet: Number(this.state.PinkyBet) })
-  //   } if (this.state.chosenTurtle == 'Clyde') {
-  //     this.setState({ currentBet: Number(this.state.ClydeBet) })
-  //   }
-
-  // }
-
   updateChosenTurtle = (e) => {
 
     let name = e.target.value
@@ -297,33 +283,11 @@ export default class App extends Component {
       chosenTurtle: name,
     })
 
-    console.log(e.target, e.target.value)
-
-    let bet = ''
-
-    if (this.state.chosenTurtle === 'Inky') {
-      bet = this.state.InkyBet
-    } else if (this.state.chosenTurtle === 'Blinky') {
-      bet = this.state.BlinkyBet
-    } else if (this.state.chosenTurtle === 'Pinky') {
-      bet = this.state.PinkyBet
-    } else if (this.state.chosenTurtle === 'Clyde') {
-      bet = this.state.ClydeBet
-    }
-
-    console.log(bet)
-
-    // this.setBetting(bet)
-
   }
 
   setBetting = (e) => {
 
     let value = e
-
-    // this.setState ({
-    //   currentBet: Number(value)
-    // })
 
     if (this.state.chosenTurtle === 'Inky') {
       this.setState ({
@@ -361,7 +325,6 @@ export default class App extends Component {
                 <MainPanel
                   uberstate={this.state}
                 />
-                <button onClick={() => {console.log(this.state)}}>state</button>
               </div>
             </div>
             <div id='left'>
