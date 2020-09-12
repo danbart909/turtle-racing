@@ -20,11 +20,6 @@ export default class App extends Component {
       PinkyBet: 0,
       ClydeBet: 0,
       gameStarted: false,
-      InkyWins: 0,
-      BlinkyWins: 0,
-      PinkyWins: 0,
-      ClydeWins: 0,
-      totalGames: 0,
       nameOrder: [
         {
           name: '',
@@ -182,23 +177,23 @@ export default class App extends Component {
         ]
     });
 
-    // setTimeout(
-    //   function() {
-    //     this.moneyCalc()
-    //   }
-    //   .bind(this),
-    //   2900
-    // )
+    setTimeout(
+      function() {
+        this.moneyCalc()
+      }
+      .bind(this),
+      2900
+    )
 
-    // setTimeout(
-    //   function() {
-    //     this.setState({
-    //       showResults: true
-    //     })
-    //   }
-    //   .bind(this),
-    //   3000
-    // )
+    setTimeout(
+      function() {
+        this.setState({
+          showResults: true
+        })
+      }
+      .bind(this),
+      3000
+    )
 
     if (!this.state.totalCash) {
       this.setState({
@@ -224,7 +219,7 @@ export default class App extends Component {
 
     // initialize moneyCalc()
 
-    this.moneyCalc()
+    // this.moneyCalc()
 
   }
 
@@ -287,13 +282,13 @@ export default class App extends Component {
 
     // this.restartRace()
 
-    setTimeout(
-    function() {
-      this.restartRace()
-    }
-    .bind(this),
-    50
-    )
+    // setTimeout(
+    // function() {
+    //   this.restartRace()
+    // }
+    // .bind(this),
+    // 50
+    // )
 
   }
 
@@ -307,25 +302,25 @@ export default class App extends Component {
 
     // initialize race
 
-    if (this.state.raceResults[0].name == 'Inky') {
-      this.setState({ InkyWins: this.state.InkyWins + 1 })
-    } else if (this.state.raceResults[0].name == 'Blinky') {
-      this.setState({ BlinkyWins: this.state.BlinkyWins + 1 })
-    } else if (this.state.raceResults[0].name == 'Pinky') {
-      this.setState({ PinkyWins: this.state.PinkyWins + 1 })
-    } else if (this.state.raceResults[0].name == 'Clyde') {
-      this.setState({ ClydeWins: this.state.ClydeWins + 1 })
-    }
+    // if (this.state.raceResults[0].name == 'Inky') {
+    //   this.setState({ InkyWins: this.state.InkyWins + 1 })
+    // } else if (this.state.raceResults[0].name == 'Blinky') {
+    //   this.setState({ BlinkyWins: this.state.BlinkyWins + 1 })
+    // } else if (this.state.raceResults[0].name == 'Pinky') {
+    //   this.setState({ PinkyWins: this.state.PinkyWins + 1 })
+    // } else if (this.state.raceResults[0].name == 'Clyde') {
+    //   this.setState({ ClydeWins: this.state.ClydeWins + 1 })
+    // }
 
-    this.setState({ totalGames: this.state.totalGames + 1 })
+    // this.setState({ totalGames: this.state.totalGames + 1 })
 
-    console.log(this.state.totalGames, this.state.InkyWins, this.state.BlinkyWins, this.state.PinkyWins, this.state.ClydeWins)
+    // console.log(this.state.totalGames, this.state.InkyWins, this.state.BlinkyWins, this.state.PinkyWins, this.state.ClydeWins)
 
-    if (this.state.totalGames == 200) {
-      return ''
-    } else {
-      this.startRace()
-    }
+    // if (this.state.totalGames == 30) {
+    //   return ''
+    // } else {
+    //   this.startRace()
+    // }
 
   }
 

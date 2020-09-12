@@ -214,17 +214,20 @@ export default class OptionsPanel extends Component {
     return (
       <>
         <div id='options-panel'>
-          {/* <div className='panel' id='options-header'>
+          <div className='panel' id='options-header'>
             <div className='options-header-part' id='options-header-part1'>
-              <span>1. Select Ghost</span>
+              <span>Pick a Turtle</span>
             </div>
             <div className='options-header-part' id='options-header-part2'>
-              <span>2. Place Bet</span>
+              <span>Odds</span>
             </div>
             <div className='options-header-part' id='options-header-part3'>
-              <span>3. Click Start</span>
+              <span>Place Bet (Max 50)</span>
             </div>
-          </div> */}
+            <div className='options-header-part' id='options-header-part4'>
+              <span>Spread</span>
+            </div>
+          </div>
           <div className='panel' id='options'>
             <form
               id='turtle-radio-form'
@@ -243,6 +246,20 @@ export default class OptionsPanel extends Component {
                 <input type='radio' name='radio-turtle' id='radio-turtle4' value='Clyde' role='radio'  disabled={this.props.uberstate.raceStarted} /><label id='radio-label-turtle4' className='radio-label-turtle' htmlFor='radio-turtle4'>Clyde</label>
               </div>
             </form>
+            <div id='turtle-chances'>
+              <div className='odds' id='odds-turtle1'>
+                <span>32.18%</span>
+              </div>
+              <div className='odds' id='odds-turtle1'>
+                <span>26.14%</span>
+              </div>
+              <div className='odds' id='odds-turtle1'>
+                <span>19.15%</span>
+              </div>
+              <div className='odds' id='odds-turtle1'>
+                <span>22.53%</span>
+              </div>
+            </div>
             <div id='turtle-bet'>
               <div id='bet-turtle1' className='bet-turtle'>
                 <input
@@ -257,7 +274,7 @@ export default class OptionsPanel extends Component {
                 />
               </div>
               <div id='bet-turtle2' className='bet-turtle'>
-              <input
+                <input
                   type='number'
                   id='turtle2-number'
                   className='turtle-number'
@@ -269,7 +286,7 @@ export default class OptionsPanel extends Component {
                 />
               </div>
               <div id='bet-turtle3' className='bet-turtle'>
-              <input
+                <input
                   type='number'
                   id='turtle3-number'
                   className='turtle-number'
@@ -281,7 +298,7 @@ export default class OptionsPanel extends Component {
                 />
               </div>
               <div id='bet-turtle4' className='bet-turtle'>
-              <input
+                <input
                   type='number'
                   id='turtle4-number'
                   className='turtle-number'
@@ -314,7 +331,7 @@ export default class OptionsPanel extends Component {
           </div>
           <div className='panel' id='button'>
             {startStopButton}
-            <button onClick={() => {(console.log(this.props.uberstate))}}>props</button>
+            {/* <button onClick={() => {(console.log(this.props.uberstate))}}>props</button> */}
           </div>
           <div className='panel' id='results'>
             <div id='results-header'>

@@ -120,7 +120,6 @@ input[type=number]::-webkit-inner-spin-button {
   justify-content: center;
   align-items: center;
   text-align: center;
-  outline: 2px solid green;
 }
 
 #header-bottom {
@@ -130,7 +129,7 @@ input[type=number]::-webkit-inner-spin-button {
   justify-content: center;
   align-items: center;
   text-align: center;
-  outline: 2px solid teal;
+  border-top: 1px solid gold;
 }
 
 #header-bot-1 {
@@ -284,7 +283,7 @@ input[type=number]::-webkit-inner-spin-button {
   width: 100%;
 }
 
-/* #options-header {
+#options-header {
   height: 5%;
   display: flex;
   justify-content: center;
@@ -293,7 +292,7 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .options-header-part {
-  width: 33%;
+  width: 25%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -304,17 +303,21 @@ input[type=number]::-webkit-inner-spin-button {
 
 #options-header-part1 {
   color: white;
-  background-color: green;
+  background-color: black;
 }
 
 #options-header-part2 {
   border-left: 1px solid white;
   border-right: 1px solid white;
-} */
+}
+
+#options-header-part3 {
+  border-right: 1px solid white;
+}
 
 #turtle-radio-form {
   height: 100%;
-  width: 33%;
+  width: 25%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -376,9 +379,43 @@ input[type=number]::-webkit-inner-spin-button {
 
 
 
+
+
+
+
+
+
+#turtle-chances {
+  height: 100%;
+  width: 25%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #turtle-bet {
   height: 100%;
-  width: 33%;
+  width: 25%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -399,9 +436,17 @@ input[type=number]::-webkit-inner-spin-button {
 
 
 
+
+
+
+
+
+
+
+
 #turtle-odds {
   height: 100%;
-  width: 33%;
+  width: 25%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
