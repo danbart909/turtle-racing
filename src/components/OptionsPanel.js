@@ -222,7 +222,7 @@ export default class OptionsPanel extends Component {
               <span>Odds</span>
             </div>
             <div className='options-header-part' id='options-header-part3'>
-              <span>Place Bet (Max 50)</span>
+              <span>Place Bet</span><span>(Max 50)</span>
             </div>
             <div className='options-header-part' id='options-header-part4'>
               <span>Spread</span>
