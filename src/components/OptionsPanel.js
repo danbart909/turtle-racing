@@ -312,20 +312,20 @@ export default class OptionsPanel extends Component {
             </div>
             <div id='turtle-odds'>
               <div id='odds-turtle1' className='odds-turtle'>
-                <span id='odds-turtle1-win'>+{this.props.uberstate.InkyBet * 4}</span>
-                <span id='odds-turtle1-lose'>-{this.props.uberstate.InkyBet / 4}</span>
+                <span id='odds-turtle1-win'>+{(this.props.uberstate.InkyBet * 1.65).toFixed(2)}</span>
+                <span id='odds-turtle1-lose'>-{this.props.uberstate.InkyBet}</span>
               </div>
               <div id='odds-turtle2' className='odds-turtle'>
-                <span id='odds-turtle2-win'>+{this.props.uberstate.BlinkyBet * 4}</span>
-                <span id='odds-turtle2-lose'>-{this.props.uberstate.BlinkyBet / 4}</span>
+                <span id='odds-turtle2-win'>+{(this.props.uberstate.BlinkyBet * 1.7).toFixed(2)}</span>
+                <span id='odds-turtle2-lose'>-{this.props.uberstate.BlinkyBet}</span>
               </div>
               <div id='odds-turtle3' className='odds-turtle'>
-                <span id='odds-turtle3-win'>+{this.props.uberstate.PinkyBet * 4}</span>
-                <span id='odds-turtle3-lose'>-{this.props.uberstate.PinkyBet / 4}</span>
+                <span id='odds-turtle3-win'>+{(this.props.uberstate.PinkyBet * 1.8).toFixed(2)}</span>
+                <span id='odds-turtle3-lose'>-{this.props.uberstate.PinkyBet}</span>
               </div>
               <div id='odds-turtle4' className='odds-turtle'>
-                <span id='odds-turtle4-win'>+{this.props.uberstate.ClydeBet * 4}</span>
-                <span id='odds-turtle4-lose'>-{this.props.uberstate.ClydeBet / 4}</span>
+                <span id='odds-turtle4-win'>+{(this.props.uberstate.ClydeBet * 1.75).toFixed(2)}</span>
+                <span id='odds-turtle4-lose'>-{this.props.uberstate.ClydeBet}</span>
               </div>
             </div>
           </div>

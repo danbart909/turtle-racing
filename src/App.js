@@ -243,24 +243,35 @@ export default class App extends Component {
 
     // console.log(currentBet)
 
-    if (this.state.raceResults[0].name == this.state.chosenTurtle) {
-
-      final = (totalCash + (currentBet * 4))
+    if ((this.state.raceResults[0].name == this.state.chosenTurtle) && (this.state.raceResults[0].name == 'Inky')) {
+      final = (totalCash + (currentBet * 1.65))
       this.setState({
         winner: true,
         endTotal: final
       })
-      // }, () => {
-        // console.log('win', final, this.state, totalCash, currentBet, adjustment);
-      // })
-
+    } else if ((this.state.raceResults[0].name == this.state.chosenTurtle) && (this.state.raceResults[0].name == 'Blinky')) {
+      final = (totalCash + (currentBet * 1.70))
+      this.setState({
+        winner: true,
+        endTotal: final
+      })
+    } else if ((this.state.raceResults[0].name == this.state.chosenTurtle) && (this.state.raceResults[0].name == 'Pinky')) {
+      final = (totalCash + (currentBet * 1.80))
+      this.setState({
+        winner: true,
+        endTotal: final
+      })
+    } else if ((this.state.raceResults[0].name == this.state.chosenTurtle) && (this.state.raceResults[0].name == 'Clyde')) {
+      final = (totalCash + (currentBet * 1.75))
+      this.setState({
+        winner: true,
+        endTotal: final
+      })
     } else {
-      final = (totalCash - (currentBet / 4))
+      final = (totalCash - currentBet)
       this.setState({
         winner: false,
         endTotal: final
-      }, () => {
-        // console.log('lose', final, this.state, totalCash, currentBet, adjustment);
       })
     }
 
