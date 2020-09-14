@@ -201,21 +201,21 @@ export default class App extends Component {
       })
     }
 
-    if (this.state.chosenTurtle == 'Inky') {
-      let modifier = this.state.InkyBet * 2
-      this.setState({ adjustment: modifier })
-    } else if (this.state.chosenTurtle == 'Blinky') {
-      let modifier = this.state.BlinkyBet * 50
-      this.setState({ adjustment: modifier })
-    } else if (this.state.chosenTurtle == 'Pinky') {
-      let modifier = this.state.PinkyBet * 2
-      this.setState({ adjustment: modifier })
-    } else if (this.state.chosenTurtle == 'Clyde') {
-      let modifier = this.state.ClydeBet / 2
-      this.setState({ adjustment: modifier })
-    } else {
-      let modifier = ''
-    }
+    // if (this.state.chosenTurtle === 'Inky') {
+    //   let modifier = this.state.InkyBet * 2
+    //   this.setState({ adjustment: modifier })
+    // } else if (this.state.chosenTurtle === 'Blinky') {
+    //   let modifier = this.state.BlinkyBet * 50
+    //   this.setState({ adjustment: modifier })
+    // } else if (this.state.chosenTurtle === 'Pinky') {
+    //   let modifier = this.state.PinkyBet * 2
+    //   this.setState({ adjustment: modifier })
+    // } else if (this.state.chosenTurtle === 'Clyde') {
+    //   let modifier = this.state.ClydeBet / 2
+    //   this.setState({ adjustment: modifier })
+    // } else {
+    //   let modifier = ''
+    // }
 
     // initialize moneyCalc()
 
@@ -227,7 +227,7 @@ export default class App extends Component {
 
     let final = ''
     let totalCash = this.state.totalCash
-    let adjustment = this.state.adjustment
+    // let adjustment = this.state.adjustment
 
     let currentBet = ''
 
@@ -243,26 +243,26 @@ export default class App extends Component {
 
     // console.log(currentBet)
 
-    if ((this.state.raceResults[0].name == this.state.chosenTurtle) && (this.state.raceResults[0].name == 'Inky')) {
-      final = (totalCash + (currentBet * 1.65))
+    if ((this.state.raceResults[0].name === this.state.chosenTurtle) && (this.state.raceResults[0].name === 'Inky')) {
+      final = (totalCash + (currentBet * 3.11))
       this.setState({
         winner: true,
         endTotal: final
       })
-    } else if ((this.state.raceResults[0].name == this.state.chosenTurtle) && (this.state.raceResults[0].name == 'Blinky')) {
-      final = (totalCash + (currentBet * 1.70))
+    } else if ((this.state.raceResults[0].name === this.state.chosenTurtle) && (this.state.raceResults[0].name === 'Blinky')) {
+      final = (totalCash + (currentBet * 3.83))
       this.setState({
         winner: true,
         endTotal: final
       })
-    } else if ((this.state.raceResults[0].name == this.state.chosenTurtle) && (this.state.raceResults[0].name == 'Pinky')) {
-      final = (totalCash + (currentBet * 1.80))
+    } else if ((this.state.raceResults[0].name === this.state.chosenTurtle) && (this.state.raceResults[0].name === 'Pinky')) {
+      final = (totalCash + (currentBet * 4.44))
       this.setState({
         winner: true,
         endTotal: final
       })
-    } else if ((this.state.raceResults[0].name == this.state.chosenTurtle) && (this.state.raceResults[0].name == 'Clyde')) {
-      final = (totalCash + (currentBet * 1.75))
+    } else if ((this.state.raceResults[0].name === this.state.chosenTurtle) && (this.state.raceResults[0].name === 'Clyde')) {
+      final = (totalCash + (currentBet * 5.22))
       this.setState({
         winner: true,
         endTotal: final
@@ -277,13 +277,13 @@ export default class App extends Component {
 
     // increment state and initiate restartRace()
 
-    // if (this.state.raceResults[0].name == 'Inky') {
+    // if (this.state.raceResults[0].name === 'Inky') {
     //   this.setState({ InkyWins: this.state.InkyWins++ })
-    // } else if (this.state.raceResults[0].name == 'Blinky') {
+    // } else if (this.state.raceResults[0].name === 'Blinky') {
     //   this.setState({ BlinkyWins: this.state.BlinkyWins++ })
-    // } else if (this.state.raceResults[0].name == 'Pinky') {
+    // } else if (this.state.raceResults[0].name === 'Pinky') {
     //   this.setState({ PinkyWins: this.state.PinkyWins++ })
-    // } else if (this.state.raceResults[0].name == 'Clyde') {
+    // } else if (this.state.raceResults[0].name === 'Clyde') {
     //   this.setState({ ClydeWins: this.state.ClydeWins++ })
     // }
 
@@ -313,13 +313,13 @@ export default class App extends Component {
 
     // initialize race
 
-    // if (this.state.raceResults[0].name == 'Inky') {
+    // if (this.state.raceResults[0].name === 'Inky') {
     //   this.setState({ InkyWins: this.state.InkyWins + 1 })
-    // } else if (this.state.raceResults[0].name == 'Blinky') {
+    // } else if (this.state.raceResults[0].name === 'Blinky') {
     //   this.setState({ BlinkyWins: this.state.BlinkyWins + 1 })
-    // } else if (this.state.raceResults[0].name == 'Pinky') {
+    // } else if (this.state.raceResults[0].name === 'Pinky') {
     //   this.setState({ PinkyWins: this.state.PinkyWins + 1 })
-    // } else if (this.state.raceResults[0].name == 'Clyde') {
+    // } else if (this.state.raceResults[0].name === 'Clyde') {
     //   this.setState({ ClydeWins: this.state.ClydeWins + 1 })
     // }
 
@@ -327,7 +327,7 @@ export default class App extends Component {
 
     // console.log(this.state.totalGames, this.state.InkyWins, this.state.BlinkyWins, this.state.PinkyWins, this.state.ClydeWins)
 
-    // if (this.state.totalGames == 30) {
+    // if (this.state.totalGames === 30) {
     //   return ''
     // } else {
     //   this.startRace()
