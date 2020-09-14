@@ -20,6 +20,7 @@ export default class App extends Component {
       PinkyBet: 0,
       ClydeBet: 0,
       gameStarted: false,
+      winner: false,
       nameOrder: [
         {
           name: '',

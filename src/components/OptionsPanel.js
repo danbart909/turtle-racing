@@ -147,16 +147,16 @@ export default class OptionsPanel extends Component {
     }, 3000)
 
     // if (this.props.uberstate.raceResults[0].name === this.props.uberstate.chosenTurtle) {
-    //   $('#turtle-result1').css({ 'border-top': '2px solid white'})
-    //   $('#turtle-result1').css({ 'border-bottom': '2px solid white'})
+    //   $('#turtle-result1').css({ 'border-top': '2px solid black'})
+    //   $('#turtle-result1').css({ 'border-bottom': '2px solid black'})
     // } else if (this.props.uberstate.raceResults[1].name === this.props.uberstate.chosenTurtle) {
-    //   $('#turtle-result2').css({ 'border-top': '2px solid white'})
-    //   $('#turtle-result2').css({ 'border-bottom': '2px solid white'})
+    //   $('#turtle-result2').css({ 'border-top': '2px solid black'})
+    //   $('#turtle-result2').css({ 'border-bottom': '2px solid black'})
     // } else if (this.props.uberstate.raceResults[2].name === this.props.uberstate.chosenTurtle) {
-    //   $('#turtle-result3').css({ 'border-top': '2px solid white'})
-    //   $('#turtle-result3').css({ 'border-bottom': '2px solid white'})
+    //   $('#turtle-result3').css({ 'border-top': '2px solid black'})
+    //   $('#turtle-result3').css({ 'border-bottom': '2px solid black'})
     // } else if (this.props.uberstate.raceResults[3].name === this.props.uberstate.chosenTurtle) {
-    //   $('#turtle-result4').css({ 'border-top': '2px solid white'})
+    //   $('#turtle-result4').css({ 'border-top': '2px solid black'})
     // }
 
     if (this.props.uberstate.InkyBet !== 0) {
