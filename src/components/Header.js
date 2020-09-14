@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import $ from 'jquery';
 
 export default class Header extends Component {
   constructor(props) {
@@ -23,15 +24,41 @@ export default class Header extends Component {
 
   cashTotal = () => {
     if (this.props.uberstate.raceStarted) {
-      return this.props.uberstate.endTotal
+      return this.props.uberstate.endTotal.toFixed(2)
     } else if (!this.props.uberstate.raceStarted && !this.props.uberstate.totalCash) {
       return 50
     } else {
-      return this.props.uberstate.totalCash
+      return this.props.uberstate.totalCash.toFixed(2)
     }
   }
 
   render() {
+
+    if (this.props.uberstate.chosenTurtle === 'Inky') {
+      $('#header-bot-1').css({'background-color': 'blue'})
+      $('#header-bot-1').css({'color': 'white'})
+    } else if (this.props.uberstate.chosenTurtle === 'Blinky') {
+      $('#header-bot-1').css({'background-color': 'red'})
+      $('#header-bot-1').css({'color': 'black'})
+    } else if (this.props.uberstate.chosenTurtle === 'Pinky') {
+      $('#header-bot-1').css({'background-color': 'yellow'})
+      $('#header-bot-1').css({'color': 'black'})
+    } else if (this.props.uberstate.chosenTurtle === 'Clyde') {
+      $('#header-bot-1').css({'background-color': 'green'})
+      $('#header-bot-1').css({'color': 'white'})
+    }
+
+    if (this.props.uberstate.showResults && this.props.uberstate.winner) {
+      $('#header-bot-2').css({'background-color': 'rgb(128, 251, 128)'})
+      $('#header-bot-2').css({'color': 'black'})
+    } else if (this.props.uberstate.showResults && !this.props.uberstate.winner) {
+      $('#header-bot-2').css({'background-color': 'rgb(250, 111, 111)'})
+      $('#header-bot-2').css({'color': 'black'})
+    } else {
+      $('#header-bot-2').css({'background-color': 'black'})
+      $('#header-bot-2').css({'color': 'white'})
+    }
+
     return (
       <>
         <div id='header'>

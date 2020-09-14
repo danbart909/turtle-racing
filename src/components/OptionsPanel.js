@@ -146,18 +146,18 @@ export default class OptionsPanel extends Component {
       })
     }, 3000)
 
-    if (this.props.uberstate.raceResults[0].name === this.props.uberstate.chosenTurtle) {
-      $('#turtle-result1').css({ 'border-top': '1px solid white'})
-      $('#turtle-result1').css({ 'border-bottom': '1px solid white'})
-    } else if (this.props.uberstate.raceResults[1].name === this.props.uberstate.chosenTurtle) {
-      $('#turtle-result2').css({ 'border-top': '1px solid white'})
-      $('#turtle-result2').css({ 'border-bottom': '1px solid white'})
-    } else if (this.props.uberstate.raceResults[2].name === this.props.uberstate.chosenTurtle) {
-      $('#turtle-result3').css({ 'border-top': '1px solid white'})
-      $('#turtle-result3').css({ 'border-bottom': '1px solid white'})
-    } else if (this.props.uberstate.raceResults[3].name === this.props.uberstate.chosenTurtle) {
-      $('#turtle-result4').css({ 'border-top': '1px solid white'})
-    }
+    // if (this.props.uberstate.raceResults[0].name === this.props.uberstate.chosenTurtle) {
+    //   $('#turtle-result1').css({ 'border-top': '2px solid white'})
+    //   $('#turtle-result1').css({ 'border-bottom': '2px solid white'})
+    // } else if (this.props.uberstate.raceResults[1].name === this.props.uberstate.chosenTurtle) {
+    //   $('#turtle-result2').css({ 'border-top': '2px solid white'})
+    //   $('#turtle-result2').css({ 'border-bottom': '2px solid white'})
+    // } else if (this.props.uberstate.raceResults[2].name === this.props.uberstate.chosenTurtle) {
+    //   $('#turtle-result3').css({ 'border-top': '2px solid white'})
+    //   $('#turtle-result3').css({ 'border-bottom': '2px solid white'})
+    // } else if (this.props.uberstate.raceResults[3].name === this.props.uberstate.chosenTurtle) {
+    //   $('#turtle-result4').css({ 'border-top': '2px solid white'})
+    // }
 
     if (this.props.uberstate.InkyBet !== 0) {
       $('#odds-turtle1-win').css({ 'color': 'green' })
@@ -208,6 +208,64 @@ export default class OptionsPanel extends Component {
     //   $('#options-header-part3').css({ 'background-color': 'green' })
     // }
     
+    if (this.props.uberstate.raceResults[0].name === 'Inky') {
+      $('#turtle-result1').css({'background-color': 'blue'})
+      $('#turtle-result1').css({'color': 'white'})
+    } else if (this.props.uberstate.raceResults[0].name === 'Blinky') {
+      $('#turtle-result1').css({'background-color': 'red'})
+      $('#turtle-result1').css({'color': 'black'})
+    } else if (this.props.uberstate.raceResults[0].name === 'Pinky') {
+      $('#turtle-result1').css({'background-color': 'yellow'})
+      $('#turtle-result1').css({'color': 'black'})
+    } else if (this.props.uberstate.raceResults[0].name === 'Clyde') {
+      $('#turtle-result1').css({'background-color': 'green'})
+      $('#turtle-result1').css({'color': 'white'})
+    }
+
+    if (this.props.uberstate.raceResults[1].name === 'Inky') {
+      $('#turtle-result2').css({'background-color': 'blue'})
+      $('#turtle-result2').css({'color': 'white'})
+    } else if (this.props.uberstate.raceResults[1].name === 'Blinky') {
+      $('#turtle-result2').css({'background-color': 'red'})
+      $('#turtle-result2').css({'color': 'black'})
+    } else if (this.props.uberstate.raceResults[1].name === 'Pinky') {
+      $('#turtle-result2').css({'background-color': 'yellow'})
+      $('#turtle-result2').css({'color': 'black'})
+    } else if (this.props.uberstate.raceResults[1].name === 'Clyde') {
+      $('#turtle-result2').css({'background-color': 'green'})
+      $('#turtle-result2').css({'color': 'white'})
+    }
+
+    if (this.props.uberstate.raceResults[2].name === 'Inky') {
+      $('#turtle-result3').css({'background-color': 'blue'})
+      $('#turtle-result3').css({'color': 'white'})
+    } else if (this.props.uberstate.raceResults[2].name === 'Blinky') {
+      $('#turtle-result3').css({'background-color': 'red'})
+      $('#turtle-result3').css({'color': 'black'})
+    } else if (this.props.uberstate.raceResults[2].name === 'Pinky') {
+      $('#turtle-result3').css({'background-color': 'yellow'})
+      $('#turtle-result3').css({'color': 'black'})
+    } else if (this.props.uberstate.raceResults[2].name === 'Clyde') {
+      $('#turtle-result3').css({'background-color': 'green'})
+      $('#turtle-result3').css({'color': 'white'})
+    }
+
+    if (this.props.uberstate.raceResults[3].name === 'Inky') {
+      $('#turtle-result4').css({'background-color': 'blue'})
+      $('#turtle-result4').css({'color': 'white'})
+    } else if (this.props.uberstate.raceResults[3].name === 'Blinky') {
+      $('#turtle-result4').css({'background-color': 'red'})
+      $('#turtle-result4').css({'color': 'black'})
+    } else if (this.props.uberstate.raceResults[3].name === 'Pinky') {
+      $('#turtle-result4').css({'background-color': 'yellow'})
+      $('#turtle-result4').css({'color': 'black'})
+    } else if (this.props.uberstate.raceResults[3].name === 'Clyde') {
+      $('#turtle-result4').css({'background-color': 'green'})
+      $('#turtle-result4').css({'color': 'white'})
+    }
+
+
+
 
 
     return (
@@ -330,7 +388,7 @@ export default class OptionsPanel extends Component {
           </div>
           <div className='panel' id='button'>
             {startStopButton}
-            {/* <button onClick={() => {(console.log(this.props.uberstate))}}>props</button> */}
+            <button onClick={() => {(console.log(this.props.uberstate))}}>props</button>
           </div>
           <div className='panel' id='results'>
             <div id='results-header'>

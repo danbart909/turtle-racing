@@ -44,6 +44,28 @@ export default class MainPanel extends Component {
       $('#turtle4').css({'animation': ``})
     }
 
+    if (this.props.uberstate.chosenTurtle === 'Inky') {
+      $('#slot1').css({'background-color': 'blue'})
+      $('#slot2').css({'background-color': 'black'})
+      $('#slot3').css({'background-color': 'black'})
+      $('#slot4').css({'background-color': 'black'})
+    } else if (this.props.uberstate.chosenTurtle === 'Blinky') {
+      $('#slot1').css({'background-color': 'black'})
+      $('#slot2').css({'background-color': 'red'})
+      $('#slot3').css({'background-color': 'black'})
+      $('#slot4').css({'background-color': 'black'})
+    } else if (this.props.uberstate.chosenTurtle === 'Pinky') {
+      $('#slot1').css({'background-color': 'black'})
+      $('#slot2').css({'background-color': 'black'})
+      $('#slot3').css({'background-color': 'yellow'})
+      $('#slot4').css({'background-color': 'black'})
+    } else if (this.props.uberstate.chosenTurtle === 'Clyde') {
+      $('#slot1').css({'background-color': 'black'})
+      $('#slot2').css({'background-color': 'black'})
+      $('#slot3').css({'background-color': 'black'})
+      $('#slot4').css({'background-color': 'green'})
+    }
+
     return (
       <>
         <div id='main-panel'>
