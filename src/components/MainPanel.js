@@ -49,22 +49,22 @@ export default class MainPanel extends Component {
         <div id='main-panel'>
           <div className='slots' id='slot1'>
             <div className='turtles' id='turtle1'>
-              <span>I</span>
+              <img src='https://i.imgur.com/t5fDmrN.png' />
             </div>
           </div>
           <div className='slots' id='slot2'>
             <div className='turtles' id='turtle2'>
-              <span>B</span>
+              <img src='https://i.imgur.com/HctoAid.png' />
             </div>
           </div>
           <div className='slots' id='slot3'>
             <div className='turtles' id='turtle3'>
-                <span>P</span>
-              </div>
+              <img src='https://i.imgur.com/qH45G3b.png' />
+            </div>
           </div>
           <div className='slots' id='slot4'>
             <div className='turtles' id='turtle4'>
-              <span>C</span>
+              <img src='https://i.imgur.com/Mi2inGU.png' />
             </div>
           </div>
         </div>
