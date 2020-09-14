@@ -388,7 +388,7 @@ export default class OptionsPanel extends Component {
           </div>
           <div className='panel' id='button'>
             {startStopButton}
-            <button onClick={() => {(console.log(this.props.uberstate))}}>props</button>
+            {/* <button onClick={() => {(console.log(this.props.uberstate))}}>props</button> */}
           </div>
           <div className='panel' id='results'>
             <div id='results-header'>
