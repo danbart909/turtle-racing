@@ -3,7 +3,15 @@
 }
 
 html {
+  background-color: black;
   font-size: 100%;
+  background-color: black;
+}
+
+body {  
+  background-color: black;
+  margin: 0;
+  padding: 0;
 }
 
 input[type=number]::-webkit-inner-spin-button {
@@ -13,6 +21,8 @@ input[type=number]::-webkit-inner-spin-button {
 #root {
   background-color: black;
   color: whitesmoke;
+  margin: 0;
+  padding: 0;
 }
 
 @keyframes goUp {
@@ -39,7 +49,7 @@ input[type=number]::-webkit-inner-spin-button {
 
 #main {
   display: flex;
-  height: 95vh;
+  height: 97.5vh;
   width: 97.5vw;
   border-left: 1px solid gold;
   border-right: 1px solid gold;
@@ -501,35 +511,19 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 #odds-turtle1-win {
-  width: 50%;
-}
-
-#odds-turtle1-lose {
-  width: 50%;
+  width: 100%;
 }
 
 #odds-turtle2-win {
-  width: 50%;
-}
-
-#odds-turtle2-lose {
-  width: 50%;
+  width: 100%;
 }
 
 #odds-turtle3-win {
-  width: 50%;
-}
-
-#odds-turtle3-lose {
-  width: 50%;
+  width: 100%;
 }
 
 #odds-turtle4-win {
-  width: 50%;
-}
-
-#odds-turtle4-lose {
-  width: 50%;
+  width: 100%;
 }
 
 
