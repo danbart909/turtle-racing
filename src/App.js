@@ -57,12 +57,10 @@ export default class App extends Component {
           finalScore: ''
         }
       ],
-      timeValues: [
-        {},
-        {},
-        {},
-        {}
-      ]
+      timeValue1: 0,
+      timeValue2: 0,
+      timeValue3: 0,
+      timeValue4: 0
     }
   }
 
@@ -100,8 +98,10 @@ export default class App extends Component {
     const turtle = [
       {
         name: 'Inky',
-        maxSpeed: this.getNum(6, 11),
-        acceleration: this.getNum(6, 11),
+        maxSpeed: this.getNum(11, 11),
+        acceleration: this.getNum(11, 11),
+        // maxSpeed: this.getNum(6, 11),
+        // acceleration: this.getNum(6, 11),
         luck: this.getLuckNum()
       },
       {
@@ -170,36 +170,34 @@ export default class App extends Component {
     this.setState({
       raceStarted: true,
       gameStarted: true,
-        timeValues: [
-          {1: results[0].finalScore},
-          {2: results[1].finalScore},
-          {3: results[2].finalScore},
-          {4: results[3].finalScore}
-        ]
+      showResults: true
     });
 
-    setTimeout(
-      function() {
-        this.moneyCalc()
-      }
-      .bind(this),
-      2900
-    )
+    let t1 = parseFloat(results[0].finalScore.toFixed(3))
+    let t2 = parseFloat(results[1].finalScore.toFixed(3))
+    let t3 = parseFloat(results[2].finalScore.toFixed(3))
+    let t4 = parseFloat(results[3].finalScore.toFixed(3))
+    let ms1 = (t1 * 1000) / 2
+    let ms2 = (t2 * 1000) / 2
+    let ms3 = (t3 * 1000) / 2
+    let ms4 = (t4 * 1000) / 2
 
-    setTimeout(
-      function() {
-        this.setState({
-          showResults: true
-        })
-      }
-      .bind(this),
-      3000
-    )
+    // setTimeout(() => { this.setState({ showResults: true }) }, ms1)
+
+    setTimeout(() => { this.setState({ timeValue1: t1 }) }, ms1)
+
+    setTimeout(() => { this.setState({ timeValue2: t2 }) }, ms2)
+
+    setTimeout(() => { this.setState({ timeValue3: t3 }) }, ms3)
+
+    setTimeout(() => { this.setState({ timeValue4: t4 }) }, ms4)
+
+    setTimeout(() => { this.moneyCalc() }, ms1)
+
+    // setTimeout(() => { this.setState({ showResults: true }) }, 2500)
 
     if (!this.state.totalCash) {
-      this.setState({
-        totalCash: 50
-      })
+      this.setState({ totalCash: 50 })
     }
 
     // if (this.state.chosenTurtle === 'Inky') {
@@ -309,6 +307,11 @@ export default class App extends Component {
     this.setState ({
       raceStarted: false,
       showResults: false,
+      gameStarted: false,
+      timeValue1: 0,
+      timeValue2: 0,
+      timeValue3: 0,
+      timeValue4: 0,
       totalCash: this.state.endTotal
     })
 

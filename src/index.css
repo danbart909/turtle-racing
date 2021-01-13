@@ -674,6 +674,10 @@ input[type=number]::-webkit-inner-spin-button {
   text-align: center;
 }
 
+#results-container * {
+  transition: 1s;
+}
+
 .turtle-results {
   width: 100%;
   height: 25%;
